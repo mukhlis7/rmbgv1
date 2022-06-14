@@ -33,10 +33,11 @@ def proc_image_view(request):
             
             print("img_filename : " + str(img_obj.Image_To_Process))
 
-            if os.path.isfile(img_file_path):
+            #
 
-                print(img_file_path)
-                form.save()
+            print(img_file_path)
+            form.save()
+            if os.path.isfile(img_file_path):
                 print("Current Dir = "+ os.getcwd())
 
                 #print("Last File Name : " + str(img_obj.Image_To_Process).split("/")[-1])
@@ -51,7 +52,7 @@ def proc_image_view(request):
                 img_url = "https://transfer.sh/" + str(img_obj.Image_To_Process).split("/")[-1]
 
                 response = requests.put(img_url , data=open(img_file_rmd_path_final,'rb').read()) 
-                
+                    
                 up_file_link = response.content.decode("utf-8")
                 request.session['up_file_link'] = up_file_link
 
