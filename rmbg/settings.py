@@ -85,6 +85,11 @@ DATABASES = {
     }
 }
 
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://rmbgv1.herokuapp.com'
+]
+
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Password validation
